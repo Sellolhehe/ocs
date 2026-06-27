@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="png" href="favicon.png">
+  <title>Comics - I HATE OCS</title>
+  <style>
+    /* Same styles as index */
+    body {
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      color:#111;
+      font-family: 'Comic Sans MS','Trebuchet MS', Arial, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .overlay {
+      position:fixed; inset:0; background:rgba(255,255,240,0.35); pointer-events:none;
+      mix-blend-mode:soft-light;
+    }
+    .container { width:820px; margin:48px auto; background:#fff8c4; border:4px solid #1900ff; padding:22px; box-shadow:0 6px 20px rgba(0,0,0,0.15); color:#111; position:relative; margin-left: 220px; }
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      background: #fff8c4;
+      border-right: 4px solid #1900ff;
+      padding: 22px;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar li {
+      margin: 10px 0;
+    }
+    .sidebar a {
+      color: #1900ff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .header { display:flex; align-items:center; justify-content:center; gap:18px; }
+    .header img { width:96px; height:96px; object-fit:contain; border:3px solid #3700ff; background:rgb(255, 255, 255); }
+    .title { font-size:56px; color:#1900ff; text-shadow:2px 2px rgba(0,0,0,0.12); line-height:1; }
+    .subtitle { font-size:14px; color:#333; margin-top:6px; }
+    .info-box { margin:16px 0; background:rgba(255,255,255,0.9); padding:12px; border:3px solid #e6d88a; color:#111; box-sizing:border-box; }
+    .footer { margin-top:12px; font-size:12px; color:#1900ff; }
+    a { color:#0044cc; }
+    body, .container { transition:all 180ms ease; }
+    .section-box { margin: 20px 0; }
+    .section-box h2 { color: #1900ff; text-align: center; }
+    .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .gallery-thumb img { width: 100%; height: auto; border: 2px solid #1900ff; cursor: pointer; }
+    .fullscreen-modal { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 1000; align-items: center; justify-content: center; flex-direction: column; padding: 20px; box-sizing: border-box; }
+    .fullscreen-modal.active { display: flex; }
+    .fullscreen-image-frame { width: min(82vw, 860px); height: min(86vh, 760px); display: flex; align-items: center; justify-content: center; overflow: hidden; border: 3px solid #fff8c4; box-shadow: 0 0 24px rgba(0,0,0,0.4); background: rgba(255,255,255,0.06); }
+    .fullscreen-modal img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
+    .fullscreen-hint { color: #fff8c4; margin-top: 16px; font-size: 16px; text-align: center; }
+    .close-btn { position: absolute; top: 18px; right: 22px; background: #fff8c4; color: #1900ff; border: 2px solid #1900ff; padding: 8px 12px; cursor: pointer; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="overlay" aria-hidden="true"></div>
+  <div class="sidebar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="ocs-lore.html">OCs Lore</a></li>
+      <li><a href="comics.html">Comics</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="header">
+      <img src="distantstar-sketch.gif" alt="Princess Luz" />
+      <div>
+        <div class="title">Comics</div>
+        <div class="subtitle">Comic gallery with a lot of cool stuff.</div>
+      </div>
+      <img src="distantstar-sketch.gif" alt="right gif" />
+    </div>
+
+    <section class="section-box">
+      <div class="gallery grid-8">
+        <div class="gallery-thumb"><img class="maybe-image" src="Bd1.png" data-full="Bd1.png" alt="comic 1"></div>
+        <div class="gallery-thumb"><img class="maybe-image" src="Bd2.png" data-full="Bd2.png" alt="comic 2"></div>
+        <div class="gallery-thumb"><img class="maybe-image" src="Bd3.png" data-full="Bd3.png" alt="comic 3"></div>
+        <div class="gallery-thumb"><img class="maybe-image" src="comic4.png" data-full="comic4.png" alt="comic 4"></div>
+        <div class="gallery-thumb"><img class="maybe-image" src="comic5.png" data-full="comic5.png" alt="comic 5"></div>
+        <div class="gallery-thumb"><img class="maybe-image" src="comic6.png" data-full="comic6.png" alt="comic 6"></div>
+        <div class="gallery-thumb"><img class="maybe-image" src="comic7.png" data-full="comic7.png" alt="comic 7"></div>
+        <div class="gallery-thumb"><img class="maybe-image" src="comic8.png" data-full="comic8.png" alt="comic 8"></div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <marquee behavior="scroll" direction="left">If you genuinely think this website or my ocs are good, please seek help.</marquee>
+    </div>
+  </div>
+
+  <div class="fullscreen-modal" id="fullscreenModal" role="dialog" aria-modal="true" aria-label="Comic viewer">
+    <button class="close-btn" id="closeModal" type="button">Close</button>
+    <div class="fullscreen-image-frame">
+      <img id="fullscreenImage" src="" alt="fullscreen comic">
+    </div>
+    <div class="fullscreen-hint">Click outside the image or press Esc to close</div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('fullscreenModal');
+    const fullscreenImage = document.getElementById('fullscreenImage');
+    const closeBtn = document.getElementById('closeModal');
+    const thumbnails = document.querySelectorAll('.gallery-thumb');
+
+    function openModal(fullSrc, altText) {
+      fullscreenImage.src = fullSrc;
+      fullscreenImage.alt = altText;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      fullscreenImage.src = '';
+      document.body.style.overflow = '';
+    }
+
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const image = thumb.querySelector('.maybe-image');
+        if (!image) return;
+        openModal(image.dataset.full || image.src, image.alt || 'comic');
+      });
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal || e.target === closeBtn) {
+        closeModal();
+      }
+    });
+
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>

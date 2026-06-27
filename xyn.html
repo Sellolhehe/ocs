@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="png" href="favicon.png">
+  <title>Xyn - I HATE OCS</title>
+  <style>
+    /* Same styles */
+    body {
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      color:#111;
+      font-family: 'Comic Sans MS','Trebuchet MS', Arial, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .overlay {
+      position:fixed; inset:0; background:rgba(255,255,240,0.35); pointer-events:none;
+      mix-blend-mode:soft-light;
+    }
+    .container { width:820px; margin:48px auto; background:#fff8c4; border:4px solid #1900ff; padding:22px; box-shadow:0 6px 20px rgba(0,0,0,0.15); color:#111; position:relative; margin-left: 220px; }
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      background: #fff8c4;
+      border-right: 4px solid #1900ff;
+      padding: 22px;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar li {
+      margin: 10px 0;
+    }
+    .sidebar a {
+      color: #1900ff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .header { display:flex; align-items:center; justify-content:center; gap:18px; }
+    .header img { width:96px; height:96px; object-fit:contain; border:3px solid #3700ff; background:rgb(255, 255, 255); }
+    .title { font-size:56px; color:#1900ff; text-shadow:2px 2px rgba(0,0,0,0.12); line-height:1; }
+    .subtitle { font-size:14px; color:#333; margin-top:6px; }
+    .DESCRIPTION { text-align:left; background:rgb(255, 255, 255); padding:12px; border:3px dashed #1900ff; color:#111; }
+    .DESCRIPTION h2 { text-align:center; color:#1900ff; font-size:34px; margin:0 0 10px; text-transform:uppercase; }
+    .DESCRIPTION ul { margin:0; padding-left:20px; color:#222; }
+    .info-box { margin:16px 0; background:rgba(255,255,255,0.9); padding:12px; border:3px solid #e6d88a; color:#111; box-sizing:border-box; }
+    .footer { margin-top:12px; font-size:12px; color:#1900ff; }
+    a { color:#0044cc; }
+    body, .container { transition:all 180ms ease; }
+    .lore-text { white-space: pre-line; }
+  </style>
+</head>
+<body>
+  <div class="overlay" aria-hidden="true"></div>
+  <div class="sidebar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="ocs-lore.html">OCs Lore</a></li>
+      <li><a href="comics.html">Comics</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="header">
+      <img src="distantstar-sketch.gif" alt="Princess Luz" />
+      <div>
+        <div class="title" id="char-title">Xyn</div>
+        <div class="subtitle" id="char-subtitle">Xyn / any pronouns</div>
+      </div>
+      <img src="distantstar-sketch.gif" alt="right gif" />
+    </div>
+
+    <div class="info-box">
+      <h2>Lore</h2>
+      <div class="lore-text" id="char-lore">Loading lore...</div>
+    </div>
+
+    <div class="footer">
+      <marquee behavior="scroll" direction="left">If you genuinely think this website or my ocs are good, please seek help.</marquee>
+    </div>
+  </div>
+  <script src="lore.js"></script>
+  <script>
+    const charName = 'xyn';
+    const charData = characterLore[charName];
+    document.getElementById('char-title').textContent = charData.title;
+    document.getElementById('char-subtitle').textContent = charData.subtitle;
+    document.getElementById('char-lore').textContent = charData.lore;
+  </script>
+</body>
+</html>

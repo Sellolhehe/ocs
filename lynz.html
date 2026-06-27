@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="png" href="favicon.png">
+  <title>Moken - I HATE OCS</title>
+  <style>
+    /* Same styles */
+    body {
+      background: url('background.png') no-repeat center center fixed;
+      background-size: cover;
+      color:#111;
+      font-family: 'Comic Sans MS','Trebuchet MS', Arial, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    .overlay {
+      position:fixed; inset:0; background:rgba(255,255,240,0.35); pointer-events:none;
+      mix-blend-mode:soft-light;
+    }
+    .container { width:820px; margin:48px auto; background:#fff8c4; border:4px solid #1900ff; padding:22px; box-shadow:0 6px 20px rgba(0,0,0,0.15); color:#111; position:relative; margin-left: 220px; }
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      background: #fff8c4;
+      border-right: 4px solid #1900ff;
+      padding: 22px;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar li {
+      margin: 10px 0;
+    }
+    .sidebar a {
+      color: #1900ff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .header { display:flex; align-items:center; justify-content:center; gap:18px; }
+    .header img { width:96px; height:96px; object-fit:contain; border:3px solid #3700ff; background:rgb(255, 255, 255); }
+    .title { font-size:56px; color:#1900ff; text-shadow:2px 2px rgba(0,0,0,0.12); line-height:1; }
+    .subtitle { font-size:14px; color:#333; margin-top:6px; }
+    .DESCRIPTION { text-align:left; background:rgb(255, 255, 255); padding:12px; border:3px dashed #1900ff; color:#111; }
+    .DESCRIPTION h2 { text-align:center; color:#1900ff; font-size:34px; margin:0 0 10px; text-transform:uppercase; }
+    .DESCRIPTION ul { margin:0; padding-left:20px; color:#222; }
+    .info-box { margin:16px 0; background:rgba(255,255,255,0.9); padding:12px; border:3px solid #e6d88a; color:#111; box-sizing:border-box; }
+    .footer { margin-top:12px; font-size:12px; color:#1900ff; }
+    a { color:#0044cc; }
+    body, .container { transition:all 180ms ease; }
+    .lore-text { white-space: pre-line; }
+  </style>
+</head>
+<body>
+  <div class="overlay" aria-hidden="true"></div>
+  <div class="sidebar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="ocs-lore.html">OCs Lore</a></li>
+      <li><a href="comics.html">Comics</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="header">
+      <img src="distantstar-sketch.gif" alt="Princess Luz" />
+      <div>
+        <div class="title">LynZ</div>
+        <div class="subtitle">LynZ/they/any</div>
+      </div>
+      <img src="distantstar-sketch.gif" alt="right gif" />
+    </div>
+
+    <div class="info-box">
+      <h2>Lore</h2>
+      <div class="lore-text">Lynz was raised in a religious cult without ever realizing it. He knew people around him were SUPER religious, but he never thought much of it and thought it was somewhat normal. His entire life was controlled by its beliefs and rituals. As he grew older, around 15, he fell in love with a girl from the cult, believing she truly cared about him.
+He later discovered the truth: the girl had only pretended to love him because the cult planned to sacrifice him. Before the ritual, he escaped into the woods and found an abandoned house.. The betrayal shattered his mind, and he isolated himself from the world. But this even fucked up with his head, causing that some days he worships God with complete devotion, while on others he hates religion entirely.
+Years later, a young guy wandered into the woods. Instead of helping them, Lynz drugged, kidnapped them and forced them to wear a metal collar lined with inward-facing spikes.
+Over time, the captive, Luo, begins to mistake Lynz's possessiveness for love, while Lynz treats him as though he is the girl he once loved.
+Lynz's appearance changes without explanation. Some days he appears male, while on others he appears female, showing how much his trauma affected him, they can also be found doing strange stuff like eating cats/dogs etc..
+
+Also there are “monsters” in the house, those monsters wont physically hurt and each represents a part of Lynz's mind.
+Sorrow
+A creature that cries endlessly, representing the life Lynz could have had if he had truly been loved.
+Devotion
+A massive creature made of wax, candles, and church architecture. It prays endlessly, whispering about faith, obedience, and sacrifice. It represents the blind faith that controlled Lynz's life.
+Lust
+A beautiful creature with a gentle voice that tempts people to stay near it. It represents obsession mistaken for love and the desire to possess what cannot truly be owned.
+Loneliness
+A tall figure that silently follows from a distance. It never attacks or speaks. It simply watches, representing the years Lynz spent completely alone.
+Forgot to mention that the house Lynz and Luo are in appear small from the outside but is actually huge inside.</div>
+    </div>
+
+    <div class="footer">
+      <marquee behavior="scroll" direction="left">If you genuinely think this website or my ocs are good, please seek help.</marquee>
+    </div>
+  </div>
+  <script src="lore.js"></script>
+  <script>
+    const charName = 'lynz';
+    const charData = characterLore[charName];
+    document.getElementById('char-title').textContent = charData.title;
+    document.getElementById('char-subtitle').textContent = charData.subtitle;
+    document.getElementById('char-lore').textContent = charData.lore;
+  </script>
+</body>
+</html>
